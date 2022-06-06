@@ -2,7 +2,7 @@ library(cdt)
 library(RCDT)
 library(microbenchmark)
 
-nsides <- 360L
+nsides <- 3600L
 angles <- seq(0, 2*pi, length.out = nsides+1L)[-1L]
 points <- cbind(cos(angles), sin(angles))
 points <- rbind(points, points/1.5)
@@ -16,6 +16,6 @@ edges <- rbind(edges_outer, edges_inner)
 
 microbenchmark(
   RCDT = delaunay(points, edges),
-  cdt = del2d_constrained_cpp(t(points), t(edges)),
+  cdt = cdel(points, edges),
   times = 5
 )
