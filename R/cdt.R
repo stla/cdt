@@ -60,7 +60,10 @@ cdel <- function(points, edges){
   storage.mode(edges) <- "integer"
   stopifnot(all(edges >= 1L))
   stopifnot(all(edges <= nrow(points)))
-  edges <- t(apply(edges, 1L, sort))
+  #edges <- t(apply(edges, 1L, sort))
+  
+  ## bit faster than apply()
+  edges <- cbind(pmin(edges[,1L], edges[,2L]), pmax(edges[,1L], edges[,2L]))
   if(anyDuplicated(edges)){
     stop("There are some duplicated constraint edges.", call. = TRUE)
   }
