@@ -88,9 +88,9 @@ Rcpp::IntegerMatrix del2d_constrained_cpp(Rcpp::NumericMatrix pts,
     size_t i = 0;
     for(CDT::Face_handle f : cdt.finite_face_handles()){
       if(f->info().in_domain()){
-        int id0 = f->vertex(0)->info();
-        int id1 = f->vertex(1)->info();
-        int id2 = f->vertex(2)->info();
+        const int id0 = f->vertex(0)->info();
+        const int id1 = f->vertex(1)->info();
+        const int id2 = f->vertex(2)->info();
         // std::array<unsigned, 3> ids = {id0, id1, id2};
         // std::sort(ids.begin(), ids.end());
         faces(Rcpp::_, i) = Rcpp::IntegerVector::create(id0, id1, id2);
