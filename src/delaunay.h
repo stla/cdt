@@ -14,6 +14,10 @@
 #include <CGAL/Projection_traits_xy_3.h>
 #include <CGAL/utility.h>
 
+#include <CGAL/Delaunay_triangulation_3.h>
+#include <CGAL/Tetrahedron_3.h>
+#include <CGAL/Triangulation_vertex_base_with_info_3.h>
+
 #include <RcppEigen.h>
 
 typedef CGAL::Exact_predicates_inexact_constructions_kernel K;
@@ -40,4 +44,9 @@ typedef CGAL::Triangulation_data_structure_2<Vb_xy> Tds_xy;
 typedef CGAL::Delaunay_triangulation_2<Pxy, Tds_xy> DTXY;
 typedef K::Point_3 Point3;
 
+typedef std::pair<Point3, int> IPoint3;
+typedef CGAL::Triangulation_vertex_base_with_info_3<int, K> Vb3;
+typedef CGAL::Triangulation_data_structure_3<Vb3> Tds3;
+typedef CGAL::Delaunay_triangulation_3<K, Tds3> DT3D;
+typedef K::Tetrahedron_3 Tetrahedron3;
 typedef Rcpp::NumericVector Dvector;

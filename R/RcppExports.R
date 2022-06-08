@@ -9,6 +9,10 @@ del2D_cpp <- function(pts) {
     .Call(`_cdt_del2D_cpp`, pts)
 }
 
+del3d_cpp <- function(pts) {
+    .Call(`_cdt_del3d_cpp`, pts)
+}
+
 delXY_cpp <- function(pts) {
     .Call(`_cdt_delXY_cpp`, pts)
 }
