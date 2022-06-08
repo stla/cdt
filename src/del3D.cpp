@@ -23,7 +23,7 @@ Rcpp::String stringTriple(const int i, const int j, const int k) {
 }
 
 // [[Rcpp::export]]
-Rcpp::List del3d_cpp(Rcpp::NumericMatrix pts) {
+Rcpp::List del3D_cpp(Rcpp::NumericMatrix pts) {
   const int npoints = pts.ncol();
   std::vector<IPoint3> points(npoints);
   for(int i = 0; i < npoints; i++) {
@@ -60,15 +60,15 @@ Rcpp::List del3d_cpp(Rcpp::NumericMatrix pts) {
         std::array<Rcpp::String, 3> triangle = triangleEdges(id0, id1, id2);
         edgesOnHull.insert(edgesOnHull.end(), triangle.begin(), triangle.end());
       }
-      std::array<size_t, 3> ids = {id0, id1, id2};
+      std::array<int, 3> ids = {id0, id1, id2};
       std::sort(ids.begin(), ids.end());
       const Rcpp::String facetAsString = stringTriple(ids[0], ids[1], ids[2]);
       i++;
       facetsMap[facetAsString] = i;
     }
-    Rcpp::CharacterVector columnNames =
+    Rcpp::CharacterVector rowNames =
         Rcpp::CharacterVector::create("i1", "i2", "i3", "onhull");
-    Rcpp::colnames(Facets) = columnNames;
+    Rcpp::rownames(Facets) = rowNames;
     Facets.attr("info") =
         "The `onhull` column indicates whether the face is on the convex hull.";
   }
@@ -91,9 +91,9 @@ Rcpp::List del3d_cpp(Rcpp::NumericMatrix pts) {
       }
       i++;
     }
-    Rcpp::CharacterVector columnNames =
+    Rcpp::CharacterVector rowNames =
         Rcpp::CharacterVector::create("i1", "i2", "onhull");
-    Rcpp::colnames(Edges) = columnNames;
+    Rcpp::rownames(Edges) = rowNames;
     Edges.attr("info") =
         "The `onhull` column indicates whether the edge is on the convex hull.";
   }

@@ -34,14 +34,14 @@ BEGIN_RCPP
     return rcpp_result_gen;
 END_RCPP
 }
-// del3d_cpp
-Rcpp::List del3d_cpp(Rcpp::NumericMatrix pts);
-RcppExport SEXP _cdt_del3d_cpp(SEXP ptsSEXP) {
+// del3D_cpp
+Rcpp::List del3D_cpp(Rcpp::NumericMatrix pts);
+RcppExport SEXP _cdt_del3D_cpp(SEXP ptsSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
     Rcpp::traits::input_parameter< Rcpp::NumericMatrix >::type pts(ptsSEXP);
-    rcpp_result_gen = Rcpp::wrap(del3d_cpp(pts));
+    rcpp_result_gen = Rcpp::wrap(del3D_cpp(pts));
     return rcpp_result_gen;
 END_RCPP
 }
@@ -60,7 +60,7 @@ END_RCPP
 static const R_CallMethodDef CallEntries[] = {
     {"_cdt_del2d_constrained_cpp", (DL_FUNC) &_cdt_del2d_constrained_cpp, 2},
     {"_cdt_del2D_cpp", (DL_FUNC) &_cdt_del2D_cpp, 1},
-    {"_cdt_del3d_cpp", (DL_FUNC) &_cdt_del3d_cpp, 1},
+    {"_cdt_del3D_cpp", (DL_FUNC) &_cdt_del3D_cpp, 1},
     {"_cdt_delXY_cpp", (DL_FUNC) &_cdt_delXY_cpp, 1},
     {NULL, NULL, 0}
 };
