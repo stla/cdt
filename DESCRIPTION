@@ -1,8 +1,8 @@
 Package: cdt
 Type: Package
 Title: What the Package Does in One 'Title Case' Line
-Version: 1.0
-Date: 2022-06-06
+Version: 0.0.9000
+Date: 2022-06-08
 Author: Your Name
 Maintainer: Your Name <your@email.com>
 Description: One paragraph description of what the package does as one or
@@ -11,6 +11,6 @@ License: GPL-3
 SystemRequirements: C++ 14, gmp, mpfr
 Imports: Rcpp (>= 1.0.8), Rvcg
 Suggests: BH
-LinkingTo: Rcpp, RcppCGAL
+LinkingTo: Rcpp, RcppCGAL, RcppEigen
 Encoding: UTF-8
 RoxygenNote: 7.2.0

@@ -1,21 +1,6 @@
-#include <CGAL/Exact_predicates_inexact_constructions_kernel.h>
-#include <CGAL/Triangulation_vertex_base_with_info_2.h>
-#include <CGAL/Constrained_Delaunay_triangulation_2.h>
-#include <CGAL/Triangulation_face_base_with_info_2.h>
-#include <Rcpp.h>
-
-typedef CGAL::Exact_predicates_inexact_constructions_kernel K;
-struct FaceInfo2 {
-  FaceInfo2() {}
-  int nesting_level;
-  bool in_domain() { return nesting_level % 2 == 1; }
-};
-typedef CGAL::Triangulation_vertex_base_with_info_2<int, K> Vbi2;
-typedef CGAL::Triangulation_face_base_with_info_2<FaceInfo2, K> Tfbi2;
-typedef CGAL::Constrained_triangulation_face_base_2<K, Tfbi2> Ctfb2;
-typedef CGAL::Triangulation_data_structure_2<Vbi2, Ctfb2> Tds2;
-typedef CGAL::Exact_predicates_tag Itag;
-typedef CGAL::Constrained_Delaunay_triangulation_2<K, Tds2, Itag> CDT;
+#ifndef _DELAUNAYHEADER_
+#include "delaunay.h"
+#endif
 
 void mark_domains0(CDT& ct,
                    CDT::Face_handle start,

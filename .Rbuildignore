@@ -3,3 +3,4 @@
 ^inst/benchmarks$
 ^LICENSE$
 ^\.github$
+^inst/essais$

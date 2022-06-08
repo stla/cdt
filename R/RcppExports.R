@@ -5,3 +5,11 @@ del2d_constrained_cpp <- function(pts, edges) {
     .Call(`_cdt_del2d_constrained_cpp`, pts, edges)
 }
 
+del2D_cpp <- function(pts) {
+    .Call(`_cdt_del2D_cpp`, pts)
+}
+
+delXY_cpp <- function(pts) {
+    .Call(`_cdt_delXY_cpp`, pts)
+}
+
